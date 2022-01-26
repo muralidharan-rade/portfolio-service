@@ -13,7 +13,7 @@ public class BussinessInfo {
 
 	boolean monopoly;
 
-	// range of 1 to 100
+	// range of 0 to 10
 	int addressableMarketSize;
 
 	boolean isMarketConsolidated;

@@ -12,7 +12,7 @@ public class PromoterInfo {
 	@NotNull(message = "acceptable values between 0 to 100")
 	double integrity;
 
-	boolean successionIssues;
+	boolean successionRobust;
 
 	double promoterStake;
 

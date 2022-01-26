@@ -28,10 +28,14 @@ public class Stock {
 	double weightage;
 
 	Financials financials;
-	
+
 	PromoterInfo promoterInfo;
-	
+
 	BussinessInfo businessInfo;
+	
+	RankingScore score;
+
+	String sector;
 
 	@Override
 	public String toString() {
@@ -44,6 +48,11 @@ public class Stock {
 	@Override
 	public boolean equals(Object obj) {
 		return this.quote.equalsIgnoreCase(((Stock) obj).getQuote());
+	}
+
+	@Override
+	public int hashCode() {
+		return super.hashCode();
 	}
 
 }

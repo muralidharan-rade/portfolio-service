@@ -36,5 +36,9 @@ public class Financials {
 	double roce;
 
 	double debtToEquity;
+	
+	double casa;
+	
+	double CARatio;
 
 }
