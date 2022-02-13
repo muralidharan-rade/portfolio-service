@@ -134,6 +134,10 @@ public class AllocationService {
 			}
 		});
 
+		input.getPortfolioStocks().forEach(xStock -> {
+			xStock.getScore().updateFinancialScore(xStock.getFinancials().getRoce() / 10);
+		});
+
 	}
 
 	private void scoreFinancialStocks(Portfolio input) {
@@ -145,7 +149,9 @@ public class AllocationService {
 
 			} else {
 
-			}
+			}	
+			// TODO how else to fine tune this?
+			xStock.getScore().updateFinancialScore(xStock.getFinancials().getPriceToBookRatio());
 		});
 	}
 

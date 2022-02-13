@@ -29,6 +29,8 @@ public class Financials {
 
 	double netProfitGrowth3YR;
 
+	// CAGR of 3 yr, Free Cash Flow (FCF) = cash from operating activity - fixed
+	// assets purchased + fixed assets sold
 	double freeCashFlow3YR;
 
 	double netProfitMargin;
@@ -36,9 +38,9 @@ public class Financials {
 	double roce;
 
 	double debtToEquity;
-	
+
 	double casa;
-	
+
 	double CARatio;
 
 }
