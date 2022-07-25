@@ -21,7 +21,7 @@ public class CreateResource {
 	@Autowired
 	AllocationService allocationService;
 
-	@PostMapping(consumes = "application/json", produces = "application/json", path = "/create")
+	@PostMapping(consumes = "application/json", produces = "application/json", path = "/portfolio/api/create")
 	public Portfolio createPortfolio(@RequestBody @Valid Portfolio request) {
 
 		return allocationService.allocatePortfolio(request);
