@@ -1,0 +1,93 @@
+apiVersion: v1
+items:
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      autopilot.gke.io/resource-adjustment: '{"input":{"containers":[{"name":"portfolio-service-sha256-1"}]},"output":{"containers":[{"limits":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"requests":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"name":"portfolio-service-sha256-1"}]},"modified":true}'
+      deployment.kubernetes.io/revision: "2"
+    creationTimestamp: "2022-07-21T18:00:12Z"
+    generation: 5
+    labels:
+      app: portfolio-service
+    name: portfolio-service
+    namespace: default
+    resourceVersion: "2454366"
+    uid: 54651823-a51e-47cd-98b7-e994372e2baa
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: portfolio-service
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 100%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: portfolio-service
+      spec:
+        containers:
+        - image: gcr.io/teak-serenity-356916/portfolio-service@sha256:df7a961bbe91ebff67002636518f701cd713bc379cc063f0741349dce079df73
+          imagePullPolicy: IfNotPresent
+          name: portfolio-service-sha256-1
+          ports:
+          - containerPort: 8080
+            name: service-port
+          - containerPort: 9090
+            name: actuator-port  
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: actuator-port
+            failureThreshold: 2
+            periodSeconds: 10 
+          resources:
+            limits:
+              cpu: 500m
+              ephemeral-storage: 1Gi
+              memory: 2Gi
+            requests:
+              cpu: 500m
+              ephemeral-storage: 1Gi
+              memory: 2Gi
+          securityContext:
+            capabilities:
+              drop:
+              - NET_RAW
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          seccompProfile:
+            type: RuntimeDefault
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2022-07-21T18:03:08Z"
+      lastUpdateTime: "2022-07-21T18:03:08Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2022-07-21T18:00:12Z"
+      lastUpdateTime: "2022-07-24T19:38:26Z"
+      message: ReplicaSet "portfolio-service-845949cd8b" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 5
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+kind: List
+metadata:
+  resourceVersion: ""

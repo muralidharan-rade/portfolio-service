@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: managed-cert-100crore
+spec:
+  domains:
+    - 100croreportfolio.in
+    - www.100croreportfolio.in
