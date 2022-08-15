@@ -34,7 +34,7 @@ items:
               name: portfolio-service-node
               port:
                 number: 8080
-          path: /portfolio/*
+          path: /api/*
           pathType: ImplementationSpecific
   status:
     loadBalancer:
