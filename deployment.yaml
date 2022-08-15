@@ -33,9 +33,9 @@ items:
           app: portfolio-service
       spec:
         containers:
-        - image: gcr.io/teak-serenity-356916/portfolio-service@sha256:df7a961bbe91ebff67002636518f701cd713bc379cc063f0741349dce079df73
+        - image: gcr.io/teak-serenity-356916/portfolio-service:1.0.4
           imagePullPolicy: IfNotPresent
-          name: portfolio-service-sha256-1
+          name: portfolio-service
           ports:
           - containerPort: 8080
             name: service-port
