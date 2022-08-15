@@ -4,10 +4,8 @@ items:
   kind: Deployment
   metadata:
     annotations:
-      autopilot.gke.io/resource-adjustment: '{"input":{"containers":[{"name":"portfolio-service-sha256-1"}]},"output":{"containers":[{"limits":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"requests":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"name":"portfolio-service-sha256-1"}]},"modified":true}'
+      autopilot.gke.io/resource-adjustment: '{"input":{"containers":[{"name":"portfolio-service"}]},"output":{"containers":[{"limits":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"requests":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"name":"portfolio-service"}]},"modified":true}'
       deployment.kubernetes.io/revision: "2"
-    creationTimestamp: "2022-07-21T18:00:12Z"
-    generation: 5
     labels:
       app: portfolio-service
     name: portfolio-service
@@ -71,23 +69,6 @@ items:
         terminationGracePeriodSeconds: 30
   status:
     availableReplicas: 1
-    conditions:
-    - lastTransitionTime: "2022-07-21T18:03:08Z"
-      lastUpdateTime: "2022-07-21T18:03:08Z"
-      message: Deployment has minimum availability.
-      reason: MinimumReplicasAvailable
-      status: "True"
-      type: Available
-    - lastTransitionTime: "2022-07-21T18:00:12Z"
-      lastUpdateTime: "2022-07-24T19:38:26Z"
-      message: ReplicaSet "portfolio-service-845949cd8b" has successfully progressed.
-      reason: NewReplicaSetAvailable
-      status: "True"
-      type: Progressing
-    observedGeneration: 5
-    readyReplicas: 1
-    replicas: 1
-    updatedReplicas: 1
 kind: List
 metadata:
   resourceVersion: ""
