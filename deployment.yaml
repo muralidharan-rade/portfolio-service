@@ -5,13 +5,10 @@ items:
   metadata:
     annotations:
       autopilot.gke.io/resource-adjustment: '{"input":{"containers":[{"name":"portfolio-service"}]},"output":{"containers":[{"limits":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"requests":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"name":"portfolio-service"}]},"modified":true}'
-      deployment.kubernetes.io/revision: "2"
     labels:
       app: portfolio-service
     name: portfolio-service
     namespace: default
-    resourceVersion: "2454366"
-    uid: 54651823-a51e-47cd-98b7-e994372e2baa
   spec:
     progressDeadlineSeconds: 600
     replicas: 1
