@@ -33,7 +33,7 @@ items:
         containers:
         - image: gcr.io/teak-serenity-356916/portfolio-service:1.0.4
           imagePullPolicy: IfNotPresent
-          name: portfolio-service
+          name: portfolio-service-container
           ports:
           - containerPort: 8080
             name: service-port
